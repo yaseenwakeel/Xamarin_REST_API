@@ -3,7 +3,7 @@
              Title="{Binding Title}">
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism Project 2!" />
+        <Label Text="Welcome to Xamarin Forms and Prism Project 2 pushed in developer branch!" />
     </StackLayout>
 
 </ContentPage>

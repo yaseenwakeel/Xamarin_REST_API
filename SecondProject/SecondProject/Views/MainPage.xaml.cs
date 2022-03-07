@@ -7,5 +7,7 @@ namespace SecondProject.Views
         {
             InitializeComponent();
         }
+
+        //
     }
 }
