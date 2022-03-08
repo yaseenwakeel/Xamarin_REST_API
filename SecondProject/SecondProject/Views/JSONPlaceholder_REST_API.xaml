@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="SecondProject.Views.JSONPlaceholder_REST_API" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+
+        <StackLayout>
+            <StackLayout>
+                <Entry Keyboard="Numeric" Placeholder="Enter userId"
+                       Text="{Binding entryUserId}" />
+                <Entry Placeholder="Enter Title" Text="{Binding entryTitle}" />
+                <Entry Placeholder="Enter Description" Text="{Binding entryDescription}" />
+                <Button BackgroundColor="Transparent"
+                        Command="{Binding OnAddCommand}"
+                        HorizontalOptions="CenterAndExpand" Text="Add Post" TextColor="Blue" />
+                <Button BackgroundColor="Transparent"
+                        Command="{Binding OnUpdateCommand}"
+                        HorizontalOptions="CenterAndExpand" Text="Update Post" TextColor="Blue" />
+
+            </StackLayout>
+            <Grid Margin="10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="15" HorizontalOptions="FillAndExpand"
+                       Text="Userid" TextTransform="Uppercase" VerticalOptions="FillAndExpand" />
+                <Label Grid.Row="0" Grid.Column="1" FontAttributes="Bold" FontSize="15" HorizontalOptions="FillAndExpand"
+                       Text="id" TextTransform="Uppercase" VerticalOptions="FillAndExpand" />
+                <Label Grid.Row="0" Grid.Column="2" FontAttributes="Bold" FontSize="15" HorizontalOptions="FillAndExpand"
+                       Text="Title" TextTransform="Uppercase" VerticalOptions="FillAndExpand" />
+                <Label Grid.Row="0" Grid.Column="3" FontAttributes="Bold" FontSize="15" HorizontalOptions="FillAndExpand"
+                       Text="Description" TextTransform="Uppercase" VerticalOptions="FillAndExpand" />
+                <Label Grid.Row="0" Grid.Column="4" FontAttributes="Bold" FontSize="15" HorizontalOptions="FillAndExpand"
+                       Text="Edit" TextTransform="Uppercase" VerticalOptions="FillAndExpand" />
+                <Label Grid.Row="0" Grid.Column="5" FontAttributes="Bold" FontSize="15" HorizontalOptions="FillAndExpand"
+                       Text="Delete" TextTransform="Uppercase" VerticalOptions="FillAndExpand" />
+
+            </Grid>
+            <!--<Button Command="{Binding command}" Text="Load Data" />-->
+            <ListView HorizontalOptions="FillAndExpand"
+                      ItemsSource="{Binding PostsList}"
+                      RowHeight="150" VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="10,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0"
+                                       Text="{Binding userId}"
+                                       VerticalTextAlignment="Center" />
+                                <Label Grid.Row="0" Grid.Column="1"
+                                       Text="{Binding id}"
+                                       VerticalTextAlignment="Center" />
+                                <Label Grid.Row="0" Grid.Column="2" MaxLines="5"
+                                       Text="{Binding title}"
+                                       VerticalTextAlignment="Center" />
+                                <Label Grid.Row="0" Grid.Column="3" MaxLines="5"
+                                       Text="{Binding body}"
+                                       VerticalTextAlignment="Center" />
+                                <Button Grid.Row="0" Grid.Column="4" BackgroundColor="Transparent" Clicked="EditBtn_Clicked"
+                                        Command="{Binding OnEditCommand}"
+                                        FontAttributes="Bold" FontSize="12" HorizontalOptions="FillAndExpand" Text="Edit" TextColor="Blue"
+                                        VerticalOptions="FillAndExpand" />
+                                <Button Grid.Row="0" Grid.Column="5" BackgroundColor="Transparent" Clicked="DeleteBtn_Clicked"
+                                        Command="{Binding OnDeleteCommand}"
+                                        FontAttributes="Bold" FontSize="12" HorizontalOptions="FillAndExpand" Text="Delete" TextColor="Blue"
+                                        VerticalOptions="FillAndExpand" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

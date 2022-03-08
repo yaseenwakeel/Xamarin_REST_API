@@ -19,7 +19,8 @@ namespace SecondProject
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            //await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("NavigationPage/JSONPlaceholder_REST_API");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -28,6 +29,7 @@ namespace SecondProject
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<JSONPlaceholder_REST_API, JSONPlaceholder_REST_API_ViewModel>();
         }
     }
 }
